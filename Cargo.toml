@@ -4,3 +4,16 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+axum = {version = "0.7.5", features = ["default", "multipart", "tokio"]}
+fern = "0.6.2"
+http-body-util="0.1.2"
+serde = { version = "1.0.208", features = ["derive"] }
+serde_json = "1.0"
+tokio = {version = "1.39.3", features = ["full"]}
+tracing-subscriber = "0.3.18"
+log = "0.4.22"
+chrono = "0.4.38"
+tracing = "0.1.40"
+tower-http ={version = "0.5.2", features = ["full"]}
+anyhow = {version = "1.0.87", features = ["default", "std", "backtrace"]}
+tower = {version = "0.5.1", features = ["full"]}
