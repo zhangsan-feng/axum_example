@@ -5,6 +5,7 @@ mod entity;
 mod api;
 mod router;
 mod mq;
+mod interfaces;
 
 use log::{info};
 
