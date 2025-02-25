@@ -1,0 +1,6 @@
+[2025-02-25 15:39:46] [INFO] [src\config\logger.rs:42] init logger config success  
+[2025-02-25 15:39:46] [INFO] [src\main.rs:16] listening on 127.0.0.1:8000  
+[2025-02-25 15:40:31] [INFO] [src\config\logger.rs:42] init logger config success  
+[2025-02-25 15:40:32] [INFO] [src\main.rs:16] listening on 127.0.0.1:8000  
+[2025-02-25 15:41:29] [INFO] [src\config\logger.rs:39] init logger config success  
+[2025-02-25 15:41:29] [INFO] [src\main.rs:16] listening on 127.0.0.1:8000  
