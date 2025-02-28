@@ -11,14 +11,12 @@ struct AppState {}
 pub async fn router_init() -> Router<()> {
     // let app_state = Arc::new(RwLock::new(AppState::default()));
     let app = Router::new()
-    .nest("/v1",
-          Router::new().nest("/web",
-                             Router::new().nest("/user",
-                                                Router::new().route("/login", post(user_login))
-                             )
-          )
-    )
+    .nest("/api",
+            Router::new().nest("/user",
+                               Router::new().route("/login", post(user_login))
+                     )
 
+    )
     .layer(
         CorsLayer::new().
         allow_origin("*".parse::<HeaderValue>().unwrap()).
