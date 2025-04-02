@@ -2,7 +2,7 @@ use serde::{Deserialize, Serialize};
 use axum::Form;
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
-struct UserEditParams {
+pub struct UserEditParams {
     id:i32,
     pic:String,
 }

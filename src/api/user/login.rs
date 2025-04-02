@@ -2,7 +2,7 @@ use axum::Json;
 use serde::{Serialize, Deserialize};
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
-struct LoginParams {
+pub struct LoginParams {
     username:String,
     password:String,
 }
