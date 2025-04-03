@@ -32,7 +32,7 @@ impl IntoResponse for AppError {
 
 impl<E> From<E> for AppError where E: Into<anyhow::Error>  {
     fn from(err: E) -> Self {
-        let anyhow_err: anyhow::Error = err.into();
+        let err_source: anyhow::Error = err.into();
         let src_files: Vec<String> = WalkDir::new(env!("CARGO_MANIFEST_DIR").to_owned() + "/src")
             .into_iter().filter_map(|entry| {
             let entry = entry.ok()?;
@@ -49,16 +49,13 @@ impl<E> From<E> for AppError where E: Into<anyhow::Error>  {
         })
             .collect();
 
-        let backtrace = anyhow_err.backtrace().
-            to_string().
-            lines().
-            filter(|l| src_files.iter().any(|file| l.contains(file))).
-            collect::<Vec<_>>().
-            join("\n");
+        let backtrace = err_source.backtrace().to_string().lines().
+            filter(|l| src_files.iter().any(|file| l.replace("\\","/").contains(file))).
+            collect::<Vec<_>>().join("\n");
 
-        info!("\n{}\n Error:{}", backtrace , anyhow_err.to_string());
+        info!("\n{}\n Error:{}", backtrace , err_source.to_string());
 
-        AppError::ServiceError(anyhow_err.to_string())
+        AppError::ServiceError(err_source.to_string())
     }
 }
 

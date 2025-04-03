@@ -19,7 +19,7 @@ pub async fn logger_init(logger_path: &str ){
             let file = record.file().unwrap_or("<unknown>");
             let line = record.line().unwrap_or(0);
             out.finish(format_args!(
-                "[{}] [{}] [{}:{}] {}  ",
+                "[{}] [{}] [{}:{}] {}",
                 chrono::Local::now().format("%Y-%m-%d %H:%M:%S"),
                 record.level(),
                 file,
