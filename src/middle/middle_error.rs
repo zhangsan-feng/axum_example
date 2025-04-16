@@ -49,8 +49,9 @@ impl<E> From<E> for AppError where E: Into<anyhow::Error>  {
         })
             .collect();
 
-        let backtrace = err_source.backtrace().to_string().lines().
-            filter(|l| src_files.iter().any(|file| l.replace("\\","/").contains(file))).
+        let backtrace = err_source.backtrace().to_string().lines()
+            .filter(|l| !l.contains("mod.rs"))
+            .filter(|l| src_files.iter().any(|file| l.replace("\\","/").contains(file))).
             collect::<Vec<_>>().join("\n");
 
         info!("\n{}\n Error:{}", backtrace , err_source.to_string());
