@@ -16,6 +16,22 @@ pub struct UserQueryParams {
     password:String,
 }
 
+#[async_trait]
+impl<B> FromRequest<B> for UserQueryParams
+where
+    B: Send,
+{
+    type Rejection = (StatusCode, &'static str);
+
+    async fn from_request(req: &mut RequestParts<B>) -> Result<Self, Self::Rejection> {
+        let query = req.uri().query().unwrap_or_default();
+        
+        serde_qs::from_str(query)
+            .map_err(|_| (StatusCode::BAD_REQUEST, "Invalid query parameters"))
+    }
+}
+
+
 pub async fn user_info(Query(params):Query<UserQueryParams>,)->  Result<Json<Value>, AppError>  {
     info!("username:{} password:{}", params.username, params.password);
     // RestResponse::success();
