@@ -1,2 +1,2 @@
 pub mod config;
-mod logger;
+pub(crate) mod logger;

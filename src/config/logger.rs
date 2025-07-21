@@ -1,9 +1,9 @@
 use log::info;
 
-pub async fn logger_init(logger_path: &str ){
+pub async fn logger_init(logger_path: String ){
 
     let date = chrono::Local::now().format("%Y-%m-%d");
-    let logfile_path = format!("{}{}.log", logger_path, date);
+    let logfile_path = format!("{}/logs/{}.log", logger_path, date);
 
     if !tokio::fs::metadata(&logger_path).await.is_ok() {
         match tokio::fs::create_dir_all(&logger_path).await {
@@ -28,10 +28,10 @@ pub async fn logger_init(logger_path: &str ){
             ))
         })
         .level(log::LevelFilter::Info)
-        .level(log::LevelFilter::Error)
-        .level(log::LevelFilter::Trace)
-        .level(log::LevelFilter::Warn)
-        .level(log::LevelFilter::Debug)
+        // .level(log::LevelFilter::Error)
+        // .level(log::LevelFilter::Trace)
+        // .level(log::LevelFilter::Warn)
+        // .level(log::LevelFilter::Debug)
         .chain(std::io::stdout())
         .chain(fern::log_file(logfile_path).expect("Failed to create log file"));
     dispatch.apply().unwrap();

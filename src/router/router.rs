@@ -2,9 +2,7 @@ use axum::http::{HeaderValue, Method};
 use axum::{middleware, Router};
 use axum::routing::get;
 use tower_http::cors::CorsLayer;
-use crate::api::user::user_info::user_info;
-use crate::api::user::login::user_login;
-use crate::api::user::edit::user_edit;
+use crate::api::user::api_params_example::get_params_example;
 use crate::middle::request_record::request_record;
 
 #[derive(Debug, Clone)]
@@ -27,9 +25,9 @@ pub async fn router_init() -> Router<()> {
     .nest("/api",
             Router::new().nest("/user",
                 Router::new()
-                    .route("/user_login", get(user_login))
-                    .route("/user_edit", get(user_edit))
-                    .route("/user_info", get(user_info))
+                    .route("/get_params_example", get(get_params_example))
+                    // .route("/user_edit", get(user_edit))
+                    // .route("/user_info", get(user_info))
 
             )
         )
