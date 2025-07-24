@@ -1,10 +1,12 @@
 use std::env;
 use axum::{http, Json};
+use axum::extract::{ Request, Multipart};
 use axum::http::StatusCode;
 use axum::response::{IntoResponse, Response};
 use log::info;
 use serde::{Deserialize, Serialize};
 use walkdir::WalkDir;
+
 
 #[derive(Debug, Deserialize, Serialize, Clone)]
 pub struct RestTemplate<T> {
@@ -64,7 +66,7 @@ impl IntoResponse for RestTemplateError {
 impl<T> From<T> for RestTemplateError where T: Into<anyhow::Error>  {
     fn from(err: T) -> Self {
         let err_source: anyhow::Error = err.into();
-        let src_files: Vec<String> = WalkDir::new(env::current_dir().unwrap().display().to_string() + "/src")
+        let src_files: Vec<String> = WalkDir::new(env!("CARGO_MANIFEST_DIR").to_string() + "/src")
             .into_iter().filter_map(|entry| {
             let entry = entry.ok()?;
             if entry.file_type().is_file() {

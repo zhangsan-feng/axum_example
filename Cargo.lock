@@ -387,12 +387,13 @@ name = "axum_example"
 version = "0.1.0"
 dependencies = [
  "anyhow",
+ "async-trait",
  "axum",
- "backtrace",
  "chrono",
  "fern",
  "futures-util",
  "http-body-util",
+ "hyper 1.6.0",
  "lazy_static",
  "log 0.4.27",
  "multipart",
@@ -402,10 +403,10 @@ dependencies = [
  "sea-orm",
  "serde",
  "serde_json",
+ "serde_urlencoded",
  "tokio",
  "tower",
  "tower-http",
- "tracing",
  "walkdir",
 ]
 
