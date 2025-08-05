@@ -11,17 +11,7 @@
     </cargoProject>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5a3407ae-9cb0-4302-8e88-86932593c8d7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/user/api_params_example.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/user/api_params_example.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/user/user_info.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/config.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/config.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/router.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/router.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/mod.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/response_adapter.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/response_adapter.rs" afterDir="false" />
-    </list>
+    <list default="true" id="5a3407ae-9cb0-4302-8e88-86932593c8d7" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -129,6 +119,7 @@
       <workItem from="1753255389957" duration="8479000" />
       <workItem from="1753320035855" duration="1145000" />
       <workItem from="1753321195501" duration="4866000" />
+      <workItem from="1753509577392" duration="170000" />
     </task>
     <servers />
   </component>
