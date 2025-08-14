@@ -1,12 +1,14 @@
 use log::info;
 
-pub async fn logger_init(logger_path: String ){
+pub async fn logger_init(logger_path: &str ){
 
     let date = chrono::Local::now().format("%Y-%m-%d");
-    let logfile_path = format!("{}/logs/{}.log", logger_path, date);
+    let logfile_path = format!("{}{}.log", logger_path, date);
+    let logfile_path =  std::path::Path::new(&logfile_path).unwrap();
+    ;
 
-    if !tokio::fs::metadata(&logger_path).await.is_ok() {
-        match tokio::fs::create_dir_all(&logger_path).await {
+    if !tokio::fs::metadata(logfile_path).await.is_ok() {
+        match tokio::fs::create_dir_all(logfile_path).await {
             Ok(()) => info!("Directory created successfully {}", logfile_path),
             Err(e) => info!("Failed to create directory: {}", e),
         }
